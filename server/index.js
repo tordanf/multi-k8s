@@ -20,9 +20,11 @@ const pgClient = new Pool({
 });
 
 pgClient.on('connect', () => {
+  console.log('on.connect');
   pgClient
     .query('CREATE TABLE IF NOT EXISTS valuesxx (number INT)')
     .catch((err) => console.log(err));
+  console.log('on.connect - done');
 });
 
 // Redis Client Setup
